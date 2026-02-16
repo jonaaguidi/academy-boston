@@ -15,8 +15,10 @@ export async function POST(request) {
       );
     }
 
+    const databaseId = process.env.NOTION_DATABASE_ID?.trim();
+
     await notion.pages.create({
-      parent: { database_id: process.env.NOTION_DATABASE_ID },
+      parent: { database_id: databaseId },
       properties: {
         Name: {
           title: [{ text: { content: firstName } }],
