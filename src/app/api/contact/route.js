@@ -41,9 +41,12 @@ export async function POST(request) {
 
     return NextResponse.json({ status: "ok" });
   } catch (error) {
-    console.error("Notion API error:", error);
+    console.error("Notion API error:", error?.body || error?.message || error);
     return NextResponse.json(
-      { error: "Failed to submit form" },
+      {
+        error: "Failed to submit form",
+        detail: error?.body?.message || error?.message || "Unknown error",
+      },
       { status: 500 }
     );
   }
