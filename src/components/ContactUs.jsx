@@ -2,91 +2,87 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-const STRIP_COUNT = 5;
+const initialForm = {
+  firstName: "",
+  lastName: "",
+  organization: "",
+  email: "",
+  phone: "",
+  message: "",
+};
 
 const ContactUs = ({ isOpen, onClose }) => {
   const [mounted, setMounted] = useState(false);
-  const [showStrips, setShowStrips] = useState(false);
-  const [contentVisible, setContentVisible] = useState(false);
-  const [closing, setClosing] = useState(false);
+  const [animState, setAnimState] = useState("idle");
+  const [form, setForm] = useState(initialForm);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      setSubmitted(true);
+      setForm(initialForm);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   useEffect(() => {
-    const timers = [];
+    let timer;
 
     if (isOpen) {
       setMounted(true);
-      setShowStrips(true);
-      setClosing(false);
+      setAnimState("entering");
       document.body.style.overflow = "hidden";
-
-      timers.push(setTimeout(() => setContentVisible(true), 750));
-      timers.push(setTimeout(() => setShowStrips(false), 1200));
     } else if (mounted) {
-      setContentVisible(false);
-      timers.push(setTimeout(() => setClosing(true), 150));
-      timers.push(setTimeout(() => {
+      setAnimState("exiting");
+      timer = setTimeout(() => {
         setMounted(false);
-        setShowStrips(false);
-        setClosing(false);
+        setAnimState("idle");
         document.body.style.overflow = "";
-      }, 700));
+      }, 2500);
     }
 
     return () => {
-      timers.forEach(clearTimeout);
+      clearTimeout(timer);
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   if (!mounted) return null;
 
-  const contentStyle = (delay = 0, direction = 'up') => ({
-    opacity: contentVisible ? 1 : 0,
-    transform: contentVisible
-      ? 'translate(0, 0)'
-      : direction === 'left'
-        ? 'translateX(-40px)'
-        : direction === 'right'
-          ? 'translateX(40px)'
-          : 'translateY(30px)',
-    transition: contentVisible
-      ? `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`
-      : 'opacity 0.3s ease, transform 0.3s ease',
-  });
+  const wipeClass = animState === "entering" ? "contact-wipe-in" : "contact-wipe-out";
 
   return (
     <>
-      {/* Page Transition Strips */}
-      {showStrips && (
-        <div className="fixed inset-0 z-[200] pointer-events-none">
-          {[...Array(STRIP_COUNT)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute top-0 h-full page-transition-strip"
-              style={{
-                left: `${i * (100 / STRIP_COUNT)}%`,
-                width: `${100 / STRIP_COUNT + 1}%`,
-                animationDelay: `${i * 0.06}s`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-
       {/* Contact Page */}
       <div
-        className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto"
-        style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.97)',
-          opacity: closing ? 0 : 1,
-          transition: closing ? 'opacity 0.5s ease' : 'none',
-        }}
+        className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden ${wipeClass}`}
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.97)' }}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-6 right-6 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:border-white/50"
-          style={contentStyle(0.3)}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -98,9 +94,9 @@ const ContactUs = ({ isOpen, onClose }) => {
           backgroundImage: 'radial-gradient(ellipse 800px 800px at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)',
         }} />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 py-24 md:px-12 lg:flex-row lg:items-center lg:gap-24 lg:px-24">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-10 px-4 py-16 md:gap-16 md:px-12 md:py-24 lg:flex-row lg:items-center lg:gap-24 lg:px-24 overflow-y-auto max-h-screen">
           {/* Left Side */}
-          <div className="flex max-w-xl flex-col" style={contentStyle(0.05, 'left')}>
+          <div className="flex max-w-xl flex-col items-center text-center lg:items-start lg:text-left">
             {/* Label */}
             <div className="mb-6 flex items-center gap-2">
               <span className="text-sm text-[#F02D2D]">✦</span>
@@ -128,7 +124,7 @@ const ContactUs = ({ isOpen, onClose }) => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <h2 className="font-[Agrandir] text-4xl font-extrabold uppercase tracking-tight text-white md:text-5xl lg:text-6xl">
+              <h2 className="font-[Agrandir] text-3xl font-extrabold uppercase tracking-tight text-white md:text-4xl lg:text-6xl">
                 Contact Us
               </h2>
             </div>
@@ -209,12 +205,13 @@ const ContactUs = ({ isOpen, onClose }) => {
 
           {/* Right Side - Form */}
           <div
-            className="w-full rounded-xl p-6 md:p-7 lg:max-w-[420px]"
+            className="w-full p-5 md:p-6 lg:p-7 lg:max-w-[420px]"
             style={{
-              background: 'linear-gradient(180deg, rgba(30, 32, 32, 0.6) 0%, rgba(8, 8, 8, 0.8) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 4px 40px rgba(0, 0, 0, 0.5)',
-              ...contentStyle(0.05, 'right'),
+              borderRadius: '20px',
+              border: '1.5px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(0, 0, 0, 0.10)',
+              boxShadow: '0 0 144px 0 rgba(255, 255, 255, 0.07)',
+              backdropFilter: 'blur(27px)',
             }}
           >
             {/* Logo */}
@@ -228,14 +225,25 @@ const ContactUs = ({ isOpen, onClose }) => {
             </div>
 
             {/* Form */}
-            <form className="flex flex-col gap-3.5">
-              <div className="grid grid-cols-2 gap-4">
+            {submitted ? (
+              <div className="flex flex-col items-center gap-3 py-8">
+                <span className="text-2xl">&#10003;</span>
+                <p className="text-sm font-semibold text-white">Message sent successfully!</p>
+                <p className="text-xs text-white/40">We'll get back to you within 24 hours.</p>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold text-white">
                     First Name <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    required
                     placeholder="Your Name"
                     className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
@@ -246,6 +254,10 @@ const ContactUs = ({ isOpen, onClose }) => {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    required
                     placeholder="Your Last Name"
                     className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
@@ -254,10 +266,13 @@ const ContactUs = ({ isOpen, onClose }) => {
 
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-semibold text-white">
-                  Organization Name <span className="text-[#F02D2D]">*</span>
+                  Organization Name
                 </label>
                 <input
                   type="text"
+                  name="organization"
+                  value={form.organization}
+                  onChange={handleChange}
                   placeholder="Your Brand"
                   className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                 />
@@ -269,6 +284,10 @@ const ContactUs = ({ isOpen, onClose }) => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
                   placeholder="Your Email"
                   className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                 />
@@ -280,6 +299,10 @@ const ContactUs = ({ isOpen, onClose }) => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
                   placeholder="Your Phone Number"
                   className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                 />
@@ -290,16 +313,25 @@ const ContactUs = ({ isOpen, onClose }) => {
                   Your Message <span className="text-[#F02D2D]">*</span>
                 </label>
                 <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  required
                   placeholder="Talk me about your Event"
                   rows={3}
                   className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                 />
               </div>
 
+              {error && (
+                <p className="text-xs text-red-400 text-center">{error}</p>
+              )}
+
               <div className="mt-1 flex justify-center">
                 <button
                   type="submit"
-                  className="btn-shine flex items-center justify-center gap-2.5 px-8 py-2.5"
+                  disabled={submitting}
+                  className="btn-shine flex items-center justify-center gap-2.5 px-8 py-2.5 disabled:opacity-50"
                   style={{
                     borderRadius: '17.541px',
                     border: '0.57px solid #FFF',
@@ -308,14 +340,17 @@ const ContactUs = ({ isOpen, onClose }) => {
                   }}
                 >
                   <span style={{ color: '#FFF', fontFamily: '"Plus Jakarta Sans"', fontSize: '12px', fontWeight: 500, lineHeight: '18px' }}>
-                    Contact Us
+                    {submitting ? "Sending..." : "Contact Us"}
                   </span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  {!submitting && (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
                 </button>
               </div>
             </form>
+            )}
           </div>
         </div>
       </div>

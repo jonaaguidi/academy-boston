@@ -34,7 +34,7 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      className="relative w-full py-20 px-6 md:px-12 lg:px-24 bg-black"
+      className="relative w-full py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-24 bg-black"
     >
       {/* Content */}
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
@@ -50,7 +50,7 @@ const FAQ = () => {
         {/* Title */}
         <div className="flex items-center gap-3 mb-12">
           <span className="text-[#F02D2D] text-2xl">✦</span>
-          <h2 className="font-[Agrandir] text-white text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
+          <h2 className="font-[Agrandir] text-white text-2xl md:text-3xl lg:text-5xl font-extrabold uppercase tracking-tight">
             Are You Ready?
           </h2>
           <span className="text-[#F02D2D] text-2xl">✦</span>
@@ -69,9 +69,9 @@ const FAQ = () => {
             >
               <button
                 onClick={() => setOpenId(openId === item.id ? null : item.id)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left"
+                className="w-full flex items-center justify-between px-4 py-3 md:px-6 md:py-4 text-left"
               >
-                <span className="text-white font-medium">{item.question}</span>
+                <span className="text-white font-medium text-sm md:text-base">{item.question}</span>
                 <svg
                   width="20"
                   height="20"
@@ -92,7 +92,7 @@ const FAQ = () => {
                 </svg>
               </button>
               {openId === item.id && (
-                <div className="px-6 pb-4">
+                <div className="px-4 pb-3 md:px-6 md:pb-4">
                   <p className="text-white/70 text-sm text-left">
                     {item.answer}
                   </p>
