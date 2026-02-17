@@ -19,7 +19,7 @@ export const viewport = {
   initialScale: 1,
 };
 
-const siteUrl = "https://academyboston.com";
+const siteUrl = "https://academy-boston.vercel.app";
 
 export const metadata = {
   title: {
