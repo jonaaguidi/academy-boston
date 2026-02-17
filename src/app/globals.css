@@ -297,3 +297,9 @@ body {
 .spin-slow {
   animation: spin-slow 8s linear infinite;
 }
+
+@media (pointer: fine) {
+  button, a, [role="button"], .btn-shine {
+    cursor: none;
+  }
+}

@@ -8,7 +8,7 @@ const Header = ({ onOpenContact }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full" style={{ background: 'linear-gradient(90deg, rgba(30, 32, 32, 0.15) 0%, rgba(8, 17, 41, 0.15) 100%)', boxShadow: '0 8px 44px 0 rgba(255, 255, 255, 0.12)', backdropFilter: 'blur(27px)' }}>
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-0 md:px-10 lg:px-16">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-2 md:px-10 md:py-3 lg:px-16">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image

@@ -54,7 +54,7 @@ const Hero = () => {
           />
         </div>
         {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/15 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/25 to-black/85" />
       </div>
 
       {/* Red Glow Effects */}

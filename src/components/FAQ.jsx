@@ -34,7 +34,8 @@ const FAQ = ({ onOpenContact }) => {
   return (
     <section
       id="faq"
-      className="relative w-full py-10 sm:py-12 md:py-16 lg:py-20 px-5 sm:px-6 md:px-12 lg:px-24 bg-black"
+      className="relative w-full pt-14 pb-10 sm:pt-16 sm:pb-12 md:pt-20 md:pb-16 lg:pt-30 lg:pb-20 px-5 sm:px-6 md:px-12 lg:px-24 bg-black"
+      style={{ boxShadow: '0 -8px 200px 0 rgba(255, 255, 255, 0.07)' }}
     >
       {/* Content */}
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
@@ -126,7 +127,7 @@ const FAQ = ({ onOpenContact }) => {
           {faqItems.map((item) => (
             <div
               key={item.id}
-              className={`w-full border rounded-xl overflow-hidden transition-all duration-300 ${
+              className={`w-full border rounded-xl transition-all duration-300 ${
                 openId === item.id
                   ? "border-[#F02D2D] bg-[#F02D2D]/10"
                   : "border-white/20 bg-transparent hover:border-white/40 hover:bg-white/5"
@@ -136,7 +137,7 @@ const FAQ = ({ onOpenContact }) => {
                 onClick={() => setOpenId(openId === item.id ? null : item.id)}
                 className="w-full flex items-center justify-between px-4 py-3 md:px-6 md:py-4 text-left"
               >
-                <span className="flex items-center gap-2 text-white font-medium text-sm md:text-base">
+                <span className="flex items-center gap-2 text-white font-semibold text-sm sm:text-base md:text-lg">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 31 31" fill="none" className="shrink-0">
                     <mask id={`mask_faq_q_${item.id}`} style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="31">
                       <path d="M30.1179 0H0V30.1179H30.1179V0Z" fill="white"/>
@@ -153,7 +154,7 @@ const FAQ = ({ onOpenContact }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`transition-transform ${
+                  className={`shrink-0 transition-transform duration-300 ${
                     openId === item.id ? "rotate-180" : ""
                   }`}
                 >
@@ -166,13 +167,18 @@ const FAQ = ({ onOpenContact }) => {
                   />
                 </svg>
               </button>
-              {openId === item.id && (
-                <div className="px-4 pb-3 md:px-6 md:pb-4">
-                  <p className="text-white/70 text-sm text-left">
-                    {item.answer}
-                  </p>
+              <div
+                className="grid transition-[grid-template-rows] duration-300 ease-out"
+                style={{ gridTemplateRows: openId === item.id ? "1fr" : "0fr" }}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-4 pb-3 md:px-6 md:pb-4">
+                    <p className="text-white/70 text-sm text-left">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

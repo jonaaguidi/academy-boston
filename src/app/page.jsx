@@ -8,6 +8,7 @@ import ExploreSpace from "@/components/ExploreSpace";
 import FAQ from "@/components/FAQ";
 import ContactUs from "@/components/ContactUs";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function Home() {
         <Footer />
       </main>
       <ContactUs isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <CustomCursor />
     </Preloader>
   );
 }
