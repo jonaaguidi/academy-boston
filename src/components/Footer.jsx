@@ -40,7 +40,7 @@ const Footer = () => {
               </defs>
             </svg>
             <p className="font-[Agrandir] text-white uppercase font-extrabold tracking-tight text-[10px] sm:text-xs md:text-sm lg:text-base text-center">
-              Academy Boston isn&apos;t just a venue - it&apos;s a movement
+              Academy Boston isn&apos;t just a venue -<br className="block min-[435px]:hidden" /> it&apos;s a movement
             </p>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[20px] sm:h-[22px] md:w-[22px] md:h-[24px] lg:w-[24px] lg:h-[26px]">
               <g clipPath="url(#clip0_footer_right)">

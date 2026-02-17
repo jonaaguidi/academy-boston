@@ -57,12 +57,13 @@ const FAQ = ({ onOpenContact }) => {
               textAlign: 'center',
               textShadow: '0 0 12px rgba(0, 0, 0, 0.35)',
               fontFamily: '"Plus Jakarta Sans"',
-              fontSize: '16px',
+              fontSize: '13px',
               fontWeight: 600,
-              lineHeight: '24px',
+              lineHeight: '20px',
               letterSpacing: '-0.312px',
               textTransform: 'uppercase',
             }}
+            className="sm:!text-[14px] md:!text-[16px]"
           >
             Where Pulse Becomes Experience
           </span>
@@ -80,7 +81,7 @@ const FAQ = ({ onOpenContact }) => {
 
         {/* Title */}
         <div className="flex items-center gap-3 mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[24px] sm:h-[26px] md:w-[28px] md:h-[31px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[20px] sm:h-[22px] md:w-[24px] md:h-[26px] lg:w-[28px] lg:h-[31px]">
             <g clipPath="url(#clip0_faq_title_l)">
               <path d="M12.2189 29.8531V20.8277C12.2189 18.8144 10.9693 18.0507 9.23363 19.0921L1.38852 23.6048L0 21.1749L7.77569 16.6622C9.51133 15.6208 9.51133 14.2323 7.77569 13.1909L0 8.67822L1.38852 6.24832L9.23363 10.761C10.9693 11.8024 12.2189 11.0387 12.2189 9.02535V0H14.996V9.02535C14.996 11.0387 16.2456 11.8024 17.9813 10.761L25.8264 6.24832L27.2149 8.67822L19.3698 13.1909C17.6341 14.2323 17.6341 15.6208 19.3698 16.6622L27.2149 21.1749L25.8264 23.6048L17.9813 19.0921C16.2456 18.0507 14.996 18.8144 14.996 20.8277V29.8531H12.2189Z" fill="#FB4444"/>
             </g>
@@ -93,7 +94,7 @@ const FAQ = ({ onOpenContact }) => {
           <h2 className="font-[Agrandir] text-white text-xl sm:text-2xl md:text-3xl lg:text-5xl font-extrabold uppercase tracking-tight">
             Are You Ready?
           </h2>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[24px] sm:h-[26px] md:w-[28px] md:h-[31px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[20px] sm:h-[22px] md:w-[24px] md:h-[26px] lg:w-[28px] lg:h-[31px]">
             <g clipPath="url(#clip0_faq_title_r)">
               <path d="M12.2189 29.8531V20.8277C12.2189 18.8144 10.9693 18.0507 9.23363 19.0921L1.38852 23.6048L0 21.1749L7.77569 16.6622C9.51133 15.6208 9.51133 14.2323 7.77569 13.1909L0 8.67822L1.38852 6.24832L9.23363 10.761C10.9693 11.8024 12.2189 11.0387 12.2189 9.02535V0H14.996V9.02535C14.996 11.0387 16.2456 11.8024 17.9813 10.761L25.8264 6.24832L27.2149 8.67822L19.3698 13.1909C17.6341 14.2323 17.6341 15.6208 19.3698 16.6622L27.2149 21.1749L25.8264 23.6048L17.9813 19.0921C16.2456 18.0507 14.996 18.8144 14.996 20.8277V29.8531H12.2189Z" fill="#FB4444"/>
             </g>
