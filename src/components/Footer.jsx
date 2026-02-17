@@ -105,19 +105,6 @@ const Footer = () => {
               <path d="M22.6543 8.58927L22.6671 8.5752" stroke="currentColor" strokeWidth="1.92" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
-          {/* Mail */}
-          <a href="#" className="text-white hover:text-[#F02D2D] transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none">
-              <g clipPath="url(#clip_footer_mail)">
-                <path d="M29.3346 7.99967C29.3346 6.53301 28.1346 5.33301 26.668 5.33301H5.33464C3.86797 5.33301 2.66797 6.53301 2.66797 7.99967V23.9997C2.66797 25.4663 3.86797 26.6663 5.33464 26.6663H26.668C28.1346 26.6663 29.3346 25.4663 29.3346 23.9997V7.99967ZM26.668 7.99967L16.0013 14.6663L5.33464 7.99967H26.668ZM26.668 23.9997H5.33464V10.6663L16.0013 17.333L26.668 10.6663V23.9997Z" fill="currentColor"/>
-              </g>
-              <defs>
-                <clipPath id="clip_footer_mail">
-                  <rect width="32" height="32" fill="white"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </a>
         </div>
       </div>
     </footer>

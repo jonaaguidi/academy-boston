@@ -1,27 +1,10 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const Header = ({ onOpenContact }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [menuMounted, setMenuMounted] = useState(false);
-  const [menuAnim, setMenuAnim] = useState("idle");
-
-  const openMenu = useCallback(() => {
-    setIsMenuOpen(true);
-    setMenuMounted(true);
-    requestAnimationFrame(() => setMenuAnim("entering"));
-  }, []);
-
-  const closeMenu = useCallback(() => {
-    setMenuAnim("exiting");
-    setTimeout(() => {
-      setIsMenuOpen(false);
-      setMenuMounted(false);
-      setMenuAnim("idle");
-    }, 350);
-  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full" style={{ background: 'linear-gradient(90deg, rgba(30, 32, 32, 0.15) 0%, rgba(8, 17, 41, 0.15) 100%)', boxShadow: '0 8px 44px 0 rgba(255, 255, 255, 0.12)', backdropFilter: 'blur(27px)' }}>
@@ -110,7 +93,7 @@ const Header = ({ onOpenContact }) => {
         {/* Mobile Menu Button */}
         <button
           className="flex h-10 w-10 items-center justify-center min-[1110px]:hidden"
-          onClick={() => isMenuOpen ? closeMenu() : openMenu()}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <svg
@@ -142,14 +125,18 @@ const Header = ({ onOpenContact }) => {
       </div>
 
       {/* Mobile Menu */}
-      {menuMounted && (
-        <div className={`border-t border-white/10 bg-black/95 backdrop-blur-md min-[1110px]:hidden overflow-hidden ${menuAnim === "entering" ? "menu-slide-in" : menuAnim === "exiting" ? "menu-slide-out" : ""}`}>
+      <div
+        className="grid transition-[grid-template-rows] duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] min-[1110px]:hidden"
+        style={{ gridTemplateRows: isMenuOpen ? "1fr" : "0fr" }}
+      >
+        <div className="overflow-hidden">
+          <div className={`border-t border-white/10 bg-black/95 backdrop-blur-md transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0"}`}>
           <nav className="flex flex-col items-start gap-5 px-8 py-8 sm:px-10 sm:py-10">
             <Link
               href="#home"
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-              onClick={closeMenu}
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
@@ -157,7 +144,7 @@ const Header = ({ onOpenContact }) => {
               href="#vip-tables"
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-              onClick={closeMenu}
+              onClick={() => setIsMenuOpen(false)}
             >
               VIP Tables
             </Link>
@@ -165,7 +152,7 @@ const Header = ({ onOpenContact }) => {
               href="#explore"
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-              onClick={closeMenu}
+              onClick={() => setIsMenuOpen(false)}
             >
               Explore The Space
             </Link>
@@ -173,7 +160,7 @@ const Header = ({ onOpenContact }) => {
               href="#faq"
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-              onClick={closeMenu}
+              onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
@@ -187,7 +174,7 @@ const Header = ({ onOpenContact }) => {
                 background: 'linear-gradient(90deg, rgba(229, 1, 1, 0.81) 0%, rgba(251, 68, 68, 0.90) 100%)',
                 boxShadow: '0 0 12.38px 0 rgba(255, 255, 255, 0.40)',
               }}
-              onClick={() => { closeMenu(); onOpenContact(); }}
+              onClick={() => { setIsMenuOpen(false); onOpenContact(); }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="23" viewBox="0 0 14 23" fill="none">
                 <path d="M8.14 7.48865C9.61277 6.97119 10.6764 5.58622 10.7162 3.94778C10.4408 3.88544 10.1543 3.85254 9.86002 3.85254C8.80399 3.85254 7.84704 4.27638 7.15039 4.96303C7.72821 5.65404 8.09199 6.52982 8.14 7.48865Z" fill="white"/>
@@ -213,8 +200,9 @@ const Header = ({ onOpenContact }) => {
               <span style={{ color: '#FFF', textAlign: 'center', fontFamily: '"Plus Jakarta Sans"', fontSize: '13px', fontWeight: 500, lineHeight: '23.92px' }}>Book Your Private Event</span>
             </button>
           </nav>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

@@ -94,9 +94,9 @@ const ContactUs = ({ isOpen, onClose }) => {
           backgroundImage: 'radial-gradient(ellipse 800px 800px at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)',
         }} />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:gap-16 md:px-12 md:py-24 lg:flex-row lg:items-center lg:gap-24 lg:px-24 overflow-y-auto max-h-screen lg:overflow-visible lg:max-h-none">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:gap-16 md:px-12 md:py-24 min-[1120px]:flex-row min-[1120px]:items-center min-[1120px]:gap-24 min-[1120px]:px-24 overflow-y-auto max-h-screen min-[1120px]:overflow-visible min-[1120px]:max-h-none">
           {/* Left Side */}
-          <div className="flex max-w-xl flex-col items-center text-center lg:items-start lg:text-left">
+          <div className="flex max-w-xl flex-col items-center text-center min-[1120px]:items-start min-[1120px]:text-left">
             {/* Label */}
             <div className="mb-4 sm:mb-6 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none" className="spin-slow sm:w-[14px] sm:h-[16px] md:w-[16px] md:h-[18px]">
@@ -178,10 +178,10 @@ const ContactUs = ({ isOpen, onClose }) => {
             </div>
 
             {/* Red line */}
-            <div className="mb-6 sm:mb-8 md:mb-10 h-[2px] w-full max-w-md bg-gradient-to-r from-[#E50909]/40 to-[#FB4444]/40" />
+            <div className="mb-3 sm:mb-4 md:mb-5 h-[2px] w-full max-w-md bg-gradient-to-r from-[#E50909]/40 to-[#FB4444]/40" />
 
             {/* Social Icons */}
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+            <div className="flex items-center">
               {/* Instagram */}
               <a href="https://www.instagram.com/academy_bos/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" className="sm:w-[28px] sm:h-[28px] md:w-[32px] md:h-[32px]">
@@ -190,25 +190,12 @@ const ContactUs = ({ isOpen, onClose }) => {
                   <path d="M22.6543 8.58927L22.6671 8.5752" stroke="#ECE8DE" strokeWidth="1.92" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-              {/* Mail */}
-              <a href="#" className="transition-opacity hover:opacity-70">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" className="sm:w-[28px] sm:h-[28px] md:w-[32px] md:h-[32px]">
-                  <g clipPath="url(#clip0_31_6607)">
-                    <path d="M29.3346 7.99967C29.3346 6.53301 28.1346 5.33301 26.668 5.33301H5.33464C3.86797 5.33301 2.66797 6.53301 2.66797 7.99967V23.9997C2.66797 25.4663 3.86797 26.6663 5.33464 26.6663H26.668C28.1346 26.6663 29.3346 25.4663 29.3346 23.9997V7.99967ZM26.668 7.99967L16.0013 14.6663L5.33464 7.99967H26.668ZM26.668 23.9997H5.33464V10.6663L16.0013 17.333L26.668 10.6663V23.9997Z" fill="#ECE8DE"/>
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_31_6607">
-                      <rect width="32" height="32" fill="white"/>
-                    </clipPath>
-                  </defs>
-                </svg>
-              </a>
             </div>
           </div>
 
           {/* Right Side - Form */}
           <div
-            className="w-full p-4 sm:p-5 md:p-6 lg:p-7 lg:max-w-[420px]"
+            className="w-full p-4 sm:p-5 md:p-6 min-[1120px]:p-7 min-[1120px]:max-w-[420px]"
             style={{
               borderRadius: '20px',
               border: '1.5px solid rgba(255, 255, 255, 0.15)',
