@@ -18,8 +18,8 @@ export default function Home() {
         <Header onOpenContact={() => setIsContactOpen(true)} />
         <Hero />
         <VipTables />
-        <ExploreSpace />
-        <FAQ />
+        <ExploreSpace onOpenContact={() => setIsContactOpen(true)} />
+        <FAQ onOpenContact={() => setIsContactOpen(true)} />
         <Footer />
       </main>
       <ContactUs isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />

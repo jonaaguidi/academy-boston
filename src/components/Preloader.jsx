@@ -52,6 +52,7 @@ const Preloader = ({ children }) => {
               width={400}
               height={80}
               priority
+              className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] h-auto"
             />
           </div>
         </div>

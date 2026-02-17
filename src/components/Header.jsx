@@ -17,11 +17,12 @@ const Header = ({ onOpenContact }) => {
             width={220}
             height={44}
             priority
+            className="w-[160px] sm:w-[180px] md:w-[200px] lg:w-[220px] h-auto"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 md:flex lg:gap-7">
           <Link
             href="#home"
             className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
@@ -42,6 +43,13 @@ const Header = ({ onOpenContact }) => {
             style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
           >
             Explore The Space
+          </Link>
+          <Link
+            href="#faq"
+            className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
+            style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
+          >
+            FAQ
           </Link>
         </nav>
 
@@ -140,6 +148,13 @@ const Header = ({ onOpenContact }) => {
               onClick={() => setIsMenuOpen(false)}
             >
               Explore The Space
+            </Link>
+            <Link
+              href="#faq"
+              className="rounded-lg px-3 py-3 text-[13px] font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white/5"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
             </Link>
             <button
               className="mt-3 flex items-center justify-center gap-2 rounded-full bg-[#F02D2D] px-5 py-3 text-[12px] font-bold text-white transition-colors hover:bg-[#d62626]"
