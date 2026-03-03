@@ -49,10 +49,10 @@ const Preloader = ({ children }) => {
             <Image
               src="/images/academy-logo.svg"
               alt="Academy"
-              width={400}
-              height={80}
+              width={360}
+              height={72}
               priority
-              className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] h-auto"
+              className="w-[225px] sm:w-[270px] md:w-[315px] lg:w-[360px] h-auto"
             />
           </div>
         </div>

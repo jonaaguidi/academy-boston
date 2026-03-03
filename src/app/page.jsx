@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import VipTables from "@/components/VipTables";
 import ExploreSpace from "@/components/ExploreSpace";
+import EventCarousel from "@/components/EventCarousel";
 import FAQ from "@/components/FAQ";
 import ContactUs from "@/components/ContactUs";
 import Footer from "@/components/Footer";
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <VipTables />
         <ExploreSpace onOpenContact={() => setIsContactOpen(true)} />
+        <EventCarousel />
         <FAQ onOpenContact={() => setIsContactOpen(true)} />
         <Footer />
       </main>

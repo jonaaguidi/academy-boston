@@ -19,9 +19,9 @@ const Footer = () => {
           <Image
             src="/images/academy-logo.svg"
             alt="Academy"
-            width={278}
-            height={60}
-            className="w-[200px] sm:w-[230px] md:w-[260px] lg:w-[278px] h-auto"
+            width={250}
+            height={54}
+            className="w-[180px] sm:w-[207px] md:w-[234px] lg:w-[250px] h-auto"
           />
         </div>
 

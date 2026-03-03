@@ -14,10 +14,10 @@ const Header = ({ onOpenContact }) => {
           <Image
             src="/images/academy-logo.svg"
             alt="Academy"
-            width={220}
-            height={44}
+            width={198}
+            height={40}
             priority
-            className="w-[160px] sm:w-[180px] md:w-[200px] lg:w-[220px] h-auto"
+            className="w-[144px] sm:w-[162px] md:w-[180px] lg:w-[198px] h-auto"
           />
         </Link>
 

@@ -111,7 +111,8 @@ const VipTables = () => {
         </div>
 
         {/* Button */}
-        <button
+        <a
+          href="#book-vip"
           className="btn-shine text-white text-xs sm:text-sm font-semibold transition-colors"
           style={{
             borderRadius: '21.046px',
@@ -123,9 +124,10 @@ const VipTables = () => {
             justifyContent: 'center',
             alignItems: 'center',
             gap: '7.26px',
+            textDecoration: 'none',
           }}
         >
-          View Menu
+          Book Now
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 31 31" fill="none">
             <mask id="mask0_77_236" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="31" height="31">
               <path d="M30.1179 0H0V30.1179H30.1179V0Z" fill="white"/>
@@ -134,7 +136,7 @@ const VipTables = () => {
               <path d="M7.85635 6.54785V9.1668H19.1047L6.54688 21.7247L8.39323 23.571L20.9511 11.0132V22.2615H23.57V6.54785H7.85635Z" fill="white"/>
             </g>
           </svg>
-        </button>
+        </a>
       </div>
 
     </section>

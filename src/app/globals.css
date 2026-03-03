@@ -7,6 +7,38 @@
   font-style: normal;
 }
 
+.hide-scrollbar,
+.hide-scrollbar * {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar,
+.hide-scrollbar *::-webkit-scrollbar {
+  display: none;
+}
+
+[data-tl-widget] *,
+div[class*="tablelist"] *,
+div[id*="tablelist"] *,
+.tl-modal *,
+[class^="tl-"] *,
+[class*="Tablelist"] *,
+[data-tl-widget] ~ div *,
+iframe[src*="tablelist"] {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+[data-tl-widget] *::-webkit-scrollbar,
+div[class*="tablelist"] *::-webkit-scrollbar,
+div[id*="tablelist"] *::-webkit-scrollbar,
+.tl-modal *::-webkit-scrollbar,
+[class^="tl-"] *::-webkit-scrollbar,
+[class*="Tablelist"] *::-webkit-scrollbar,
+[data-tl-widget] ~ div *::-webkit-scrollbar,
+iframe[src*="tablelist"]::-webkit-scrollbar {
+  display: none !important;
+}
+
 :root {
   --background: #000000;
   --foreground: #ffffff;

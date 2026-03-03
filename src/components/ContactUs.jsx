@@ -209,9 +209,9 @@ const ContactUs = ({ isOpen, onClose }) => {
               <Image
                 src="/images/academy-logo.svg"
                 alt="Academy"
-                width={140}
-                height={28}
-                className="w-[110px] sm:w-[120px] md:w-[140px] h-auto"
+                width={126}
+                height={25}
+                className="w-[99px] sm:w-[108px] md:w-[126px] h-auto"
               />
             </div>
 
