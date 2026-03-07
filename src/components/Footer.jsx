@@ -1,8 +1,12 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const prefix = pathname === "/" ? "" : "/";
   return (
     <footer
       className="relative w-full flex flex-col justify-center items-center md:!px-16 lg:!px-[120px]"
@@ -18,7 +22,7 @@ const Footer = () => {
         <div style={{ marginBottom: '0' }}>
           <Image
             src="/images/academy-logo.svg"
-            alt="Academy"
+            alt="Descent"
             width={250}
             height={54}
             className="w-[180px] sm:w-[207px] md:w-[234px] lg:w-[250px] h-auto"
@@ -40,7 +44,7 @@ const Footer = () => {
               </defs>
             </svg>
             <p className="font-[Agrandir] text-white uppercase font-extrabold tracking-tight text-[10px] sm:text-xs md:text-sm lg:text-base text-center">
-              Academy Boston isn&apos;t just a venue -<br className="block min-[435px]:hidden" /> it&apos;s a movement
+              Descent isn&apos;t just a venue -<br className="block min-[435px]:hidden" /> it&apos;s a movement
             </p>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 28 31" fill="none" className="spin-slow sm:w-[20px] sm:h-[22px] md:w-[22px] md:h-[24px] lg:w-[24px] lg:h-[26px]">
               <g clipPath="url(#clip0_footer_right)">
@@ -71,10 +75,10 @@ const Footer = () => {
         {/* Navigation */}
         <nav className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-7">
           {[
-            { label: "Home", href: "#home" },
-            { label: "VIP Tables", href: "#vip-tables" },
-            { label: "Explore The Space", href: "#explore" },
-            { label: "FAQ", href: "#faq" },
+            { label: "Home", href: `${prefix}#home` },
+            { label: "Explore The Space", href: `${prefix}#explore` },
+            { label: "VIP Tables", href: `${prefix}#vip-tables` },
+            { label: "FAQ", href: `${prefix}#faq` },
           ].map((item) => (
             <Link
               key={item.label}

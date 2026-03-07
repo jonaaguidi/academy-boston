@@ -2,9 +2,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Header = ({ onOpenContact }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const prefix = pathname === "/" ? "" : "/";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full" style={{ background: 'linear-gradient(90deg, rgba(30, 32, 32, 0.15) 0%, rgba(8, 17, 41, 0.15) 100%)', boxShadow: '0 8px 44px 0 rgba(255, 255, 255, 0.12)', backdropFilter: 'blur(27px)' }}>
@@ -13,7 +16,7 @@ const Header = ({ onOpenContact }) => {
         <Link href="/" className="flex items-center">
           <Image
             src="/images/academy-logo.svg"
-            alt="Academy"
+            alt="Descent"
             width={198}
             height={40}
             priority
@@ -24,28 +27,28 @@ const Header = ({ onOpenContact }) => {
         {/* Desktop Navigation */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 min-[1110px]:flex lg:gap-7">
           <Link
-            href="#home"
+            href={`${prefix}#home`}
             className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
             style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
           >
             Home
           </Link>
           <Link
-            href="#vip-tables"
-            className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
-            style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-          >
-            VIP Tables
-          </Link>
-          <Link
-            href="#explore"
+            href={`${prefix}#explore`}
             className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
             style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
           >
             Explore The Space
           </Link>
           <Link
-            href="#faq"
+            href={`${prefix}#vip-tables`}
+            className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
+            style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
+          >
+            VIP Tables
+          </Link>
+          <Link
+            href={`${prefix}#faq`}
             className="nav-link-underline font-[Agrandir] text-[12px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
             style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
           >
@@ -133,7 +136,7 @@ const Header = ({ onOpenContact }) => {
           <div className={`border-t border-white/10 bg-black/95 backdrop-blur-md transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0"}`}>
           <nav className="flex flex-col items-start gap-5 px-8 py-8 sm:px-10 sm:py-10">
             <Link
-              href="#home"
+              href={`${prefix}#home`}
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
               onClick={() => setIsMenuOpen(false)}
@@ -141,15 +144,7 @@ const Header = ({ onOpenContact }) => {
               Home
             </Link>
             <Link
-              href="#vip-tables"
-              className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
-              style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              VIP Tables
-            </Link>
-            <Link
-              href="#explore"
+              href={`${prefix}#explore`}
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
               onClick={() => setIsMenuOpen(false)}
@@ -157,7 +152,15 @@ const Header = ({ onOpenContact }) => {
               Explore The Space
             </Link>
             <Link
-              href="#faq"
+              href={`${prefix}#vip-tables`}
+              className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
+              style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              VIP Tables
+            </Link>
+            <Link
+              href={`${prefix}#faq`}
               className="nav-link-underline font-[Agrandir] text-[15px] sm:text-[16px] font-[800] uppercase leading-[120.3%] tracking-[-0.28px] text-white"
               style={{ textShadow: '0 0 5.867px rgba(0, 0, 0, 0.40)' }}
               onClick={() => setIsMenuOpen(false)}

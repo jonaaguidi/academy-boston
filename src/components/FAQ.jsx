@@ -4,9 +4,9 @@ import React, { useState } from "react";
 const faqItems = [
   {
     id: 1,
-    question: "What types of events can I host at Academy Boston?",
+    question: "What types of events can I host at Descent?",
     answer:
-      "Academy Boston is perfect for corporate events, holiday parties, B2B gatherings, private celebrations, and electronic & house music nights. With 8,500 sq ft of space, a full commercial kitchen, and a world-class sound system, we can accommodate a wide range of events.",
+      "Descent is perfect for corporate events, holiday parties, B2B gatherings, private celebrations, and electronic & house music nights. With 8,500 sq ft of space, a full commercial kitchen, and a world-class sound system, we can accommodate a wide range of events.",
   },
   {
     id: 2,
@@ -120,7 +120,7 @@ const FAQ = ({ onOpenContact }) => {
             marginBottom: '24px',
           }}
         >
-          Everything you need to know before your next event at Academy Boston.
+          Everything you need to know before your next event at Descent.
         </p>
 
         {/* Accordion */}

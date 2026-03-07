@@ -23,13 +23,13 @@ const siteUrl = "https://academy-boston.vercel.app";
 
 export const metadata = {
   title: {
-    default: "Academy Boston | Event Space in Harvard Square",
-    template: "%s | Academy Boston",
+    default: "Descent | Event Space in Harvard Square",
+    template: "%s | Descent",
   },
   description:
     "8,500 sq ft event space in the heart of Harvard Square — 33 Dunster St, Cambridge. Custom Martin Audio sound system, full bar, VIP tables & commercial kitchen. Book your private event today.",
   keywords: [
-    "Academy Boston",
+    "Descent",
     "event space",
     "Harvard Square",
     "Cambridge",
@@ -40,15 +40,15 @@ export const metadata = {
     "venue rental",
     "33 Dunster St",
   ],
-  authors: [{ name: "Academy Boston" }],
-  creator: "Academy Boston",
+  authors: [{ name: "Descent" }],
+  creator: "Descent",
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Academy Boston",
-    title: "Academy Boston | Event Space in Harvard Square",
+    siteName: "Descent",
+    title: "Descent | Event Space in Harvard Square",
     description:
       "8,500 sq ft event space in the heart of Harvard Square — Custom Martin Audio sound system, full bar, VIP tables & commercial kitchen.",
     images: [
@@ -56,13 +56,13 @@ export const metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Academy Boston — Event Space in Harvard Square",
+        alt: "Descent — Event Space in Harvard Square",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Academy Boston | Event Space in Harvard Square",
+    title: "Descent | Event Space in Harvard Square",
     description:
       "8,500 sq ft event space in the heart of Harvard Square — Custom Martin Audio sound system, full bar, VIP tables & commercial kitchen.",
     images: ["/images/og-image.jpg"],

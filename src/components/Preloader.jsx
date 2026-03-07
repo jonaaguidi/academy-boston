@@ -48,7 +48,7 @@ const Preloader = ({ children }) => {
           <div className="preloader-logo">
             <Image
               src="/images/academy-logo.svg"
-              alt="Academy"
+              alt="Descent"
               width={360}
               height={72}
               priority

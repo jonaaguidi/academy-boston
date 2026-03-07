@@ -164,7 +164,7 @@ const ContactUs = ({ isOpen, onClose }) => {
 
             {/* Description */}
             <p className="mb-4 sm:mb-6 max-w-md text-xs sm:text-sm leading-relaxed text-white/30">
-              Ready to host your next event at Academy Boston? Fill out the form and our team will get back to you.
+              Ready to host your next event at Descent? Fill out the form and our team will get back to you.
             </p>
 
             {/* Address */}
@@ -208,7 +208,7 @@ const ContactUs = ({ isOpen, onClose }) => {
             <div className="mb-4 sm:mb-5 flex justify-center">
               <Image
                 src="/images/academy-logo.svg"
-                alt="Academy"
+                alt="Descent"
                 width={126}
                 height={25}
                 className="w-[99px] sm:w-[108px] md:w-[126px] h-auto"

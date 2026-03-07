@@ -47,7 +47,7 @@ const Hero = () => {
         >
           <Image
             src="/images/contact-bg.jpg"
-            alt="Academy Boston venue"
+            alt="Descent venue"
             fill
             className="object-cover"
             priority

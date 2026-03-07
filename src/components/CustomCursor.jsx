@@ -12,8 +12,8 @@ const CustomCursor = () => {
     const tag = el.tagName;
     if (tag === "BUTTON" || tag === "A") return true;
     if (el.getAttribute("role") === "button") return true;
-    if (el.classList.contains("btn-shine")) return true;
-    if (el.closest("button, a, [role='button'], .btn-shine")) return true;
+    if (el.classList.contains("btn-shine") || el.classList.contains("cursor-pointer")) return true;
+    if (el.closest("button, a, [role='button'], .btn-shine, .cursor-pointer")) return true;
     return false;
   }, []);
 

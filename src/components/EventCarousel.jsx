@@ -86,7 +86,7 @@ const EventCarousel = () => {
             marginBottom: '32px',
           }}
         >
-          Browse our upcoming events and book your VIP table for an unforgettable night at Academy Boston.
+          Browse our upcoming events and book your VIP table for an unforgettable night at Descent.
         </p>
 
         {/* Tablelist Widget */}
