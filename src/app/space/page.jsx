@@ -296,7 +296,7 @@ export default function SpacePage() {
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 41 41" fill="none" className="shrink-0 sm:w-[18px] sm:h-[18px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px]">
               <path d="M3.13043 0V6.26087H30.0209L0 36.2817L4.41391 40.6957L34.4348 10.6748V37.5652H40.6957V0H3.13043Z" fill="white"/>
             </svg>
-            <h2 className="font-[Agrandir] text-white text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+            <h2 className="font-[Agrandir] text-white text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-tight whitespace-nowrap">
               Ready to Experience It?
             </h2>
           </div>
