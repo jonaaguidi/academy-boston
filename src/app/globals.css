@@ -35,6 +35,7 @@ iframe[src*="tablelist"] {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
   overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 [data-tl-widget]::-webkit-scrollbar,
 [data-tl-widget] *::-webkit-scrollbar,

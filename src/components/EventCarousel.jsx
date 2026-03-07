@@ -92,7 +92,7 @@ const EventCarousel = () => {
         {/* Tablelist Widget */}
         <div
           ref={containerRef}
-          className="w-full max-w-4xl hide-scrollbar"
+          className="w-full max-w-7xl hide-scrollbar"
           data-tl-widget="event-carousel"
           data-theme="theme-dark"
           data-venue-id="ad4e9c19aec384a2"
