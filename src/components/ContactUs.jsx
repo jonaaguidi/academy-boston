@@ -8,8 +8,12 @@ const initialForm = {
   organization: "",
   email: "",
   phone: "",
+  budget: "",
+  capacity: "",
+  rentalTime: "",
   message: "",
 };
+
 
 const ContactUs = ({ isOpen, onClose }) => {
   const [mounted, setMounted] = useState(false);
@@ -76,8 +80,8 @@ const ContactUs = ({ isOpen, onClose }) => {
     <>
       {/* Contact Page */}
       <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center overflow-hidden ${wipeClass}`}
-        style={{ backgroundColor: 'rgba(0, 0, 0, 0.97)' }}
+        className={`fixed inset-0 z-[100] flex items-center justify-center ${wipeClass}`}
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.97)', overflow: 'hidden' }}
       >
         {/* Close Button */}
         <button
@@ -94,9 +98,9 @@ const ContactUs = ({ isOpen, onClose }) => {
           backgroundImage: 'radial-gradient(ellipse 800px 800px at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)',
         }} />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:gap-16 md:px-12 md:py-24 min-[1120px]:flex-row min-[1120px]:items-center min-[1120px]:gap-24 min-[1120px]:px-24 overflow-y-auto max-h-screen min-[1120px]:overflow-visible min-[1120px]:max-h-none">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-start gap-6 px-4 py-6 sm:gap-8 sm:px-6 sm:py-10 md:justify-between md:gap-12 md:px-12 md:py-16 min-[1120px]:flex-row min-[1120px]:items-center min-[1120px]:justify-between min-[1120px]:gap-16 min-[1120px]:px-24 overflow-y-auto max-h-[100dvh] min-[1120px]:overflow-visible min-[1120px]:max-h-none">
           {/* Left Side */}
-          <div className="flex max-w-xl flex-col items-center text-center min-[1120px]:items-start min-[1120px]:text-left">
+          <div className="mt-10 sm:mt-0 flex max-w-xl flex-col items-center text-center min-[1120px]:items-start min-[1120px]:text-left shrink-0">
             {/* Label */}
             <div className="mb-4 sm:mb-6 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none" className="spin-slow sm:w-[14px] sm:h-[16px] md:w-[16px] md:h-[18px]">
@@ -195,7 +199,7 @@ const ContactUs = ({ isOpen, onClose }) => {
 
           {/* Right Side - Form */}
           <div
-            className="w-full p-4 sm:p-5 md:p-6 min-[1120px]:p-7 min-[1120px]:max-w-[420px]"
+            className="w-full max-w-2xl mb-6 p-5 sm:p-5 md:p-6 min-[1120px]:p-7"
             style={{
               borderRadius: '20px',
               border: '1.5px solid rgba(255, 255, 255, 0.15)',
@@ -223,8 +227,8 @@ const ContactUs = ({ isOpen, onClose }) => {
                 <p className="text-xs text-white/40">We'll get back to you within 24 hours.</p>
               </div>
             ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-3.5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-3 md:gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-semibold text-white">
                     First Name <span className="text-[#F02D2D]">*</span>
@@ -255,48 +259,94 @@ const ContactUs = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-white">
-                  Organization Name
-                </label>
-                <input
-                  type="text"
-                  name="organization"
-                  value={form.organization}
-                  onChange={handleChange}
-                  placeholder="Your Brand"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
-                />
+              <div className="grid grid-cols-3 gap-3 md:gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Organization <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="organization"
+                    value={form.organization}
+                    onChange={handleChange}
+                    required
+                    placeholder="Your Organization"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Email <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="Your Email"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Phone <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    required
+                    placeholder="Your Phone"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-white">
-                  Email <span className="text-[#F02D2D]">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your Email"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-white">
-                  Phone <span className="text-[#F02D2D]">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your Phone Number"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
-                />
+              <div className="grid grid-cols-3 gap-3 md:gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Budget <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="budget"
+                    value={form.budget}
+                    onChange={handleChange}
+                    required
+                    placeholder="$10,000"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Capacity <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="capacity"
+                    value={form.capacity}
+                    onChange={handleChange}
+                    required
+                    placeholder="200 guests"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-semibold text-white">
+                    Rental Time <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="rentalTime"
+                    value={form.rentalTime}
+                    onChange={handleChange}
+                    required
+                    placeholder="6 hours"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  />
+                </div>
               </div>
 
               <div className="flex flex-col gap-1.5">

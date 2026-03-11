@@ -103,6 +103,14 @@ const ExploreSpace = ({ onOpenContact }) => {
         </div>
 
         {/* Subtitle */}
+        {/* Headline */}
+        <h3
+          className="font-[Agrandir] text-white text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold uppercase tracking-tight mb-3"
+        >
+          8,500 Square Feet of Immersive Event Space
+        </h3>
+
+        {/* Description */}
         <p
           style={{
             color: '#99A1AF',
@@ -116,7 +124,7 @@ const ExploreSpace = ({ onOpenContact }) => {
             marginBottom: '24px',
           }}
         >
-          <span style={{ fontWeight: 600, color: '#fff' }}>8,500sq ft of pure energy</span> — featuring a Custom Martin Audio Sound System, full commercial kitchen, long bar, and VIP tables built for unforgettable nights.
+          Located at <span style={{ fontWeight: 600, color: '#fff' }}>33 Dunster Street</span> in the heart of Harvard Square, Descent is a premier 8,500-square-foot venue designed to host exceptional events of every kind.
         </p>
 
         {/* Button */}

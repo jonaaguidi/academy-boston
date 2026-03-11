@@ -8,18 +8,18 @@ import CustomCursor from "@/components/CustomCursor";
 import SpotlightCard from "@/components/SpotlightCard";
 
 const allImages = [
-  { id: 1, alt: "Venue dance floor", src: "/images/marquee-top-1.jpg", hdSrc: "/images/marquee-top-1-hd.jpg" },
-  { id: 2, alt: "Bar taps", src: "/images/marquee-top-2.jpg", hdSrc: "/images/marquee-top-2-hd.jpg" },
-  { id: 3, alt: "Bar area", src: "/images/marquee-top-3.jpg", hdSrc: "/images/marquee-top-3-hd.jpg" },
-  { id: 4, alt: "Premium bottles", src: "/images/marquee-top-4.jpg", hdSrc: "/images/marquee-top-4-hd.jpg" },
-  { id: 5, alt: "VIP table service", src: "/images/vip-table.jpg", hdSrc: "/images/vip-table.jpg" },
-  { id: 6, alt: "Main hall", src: "/images/marquee-top-6.jpg", hdSrc: "/images/marquee-top-6-hd.jpg" },
-  { id: 7, alt: "DJ performing", src: "/images/marquee-bot-1.jpg", hdSrc: "/images/marquee-bot-1.jpg" },
-  { id: 8, alt: "Province 44 DJ set", src: "/images/marquee-bot-2.jpg", hdSrc: "/images/marquee-bot-2.jpg" },
-  { id: 9, alt: "DJ crowd energy", src: "/images/marquee-bot-3.jpg", hdSrc: "/images/marquee-bot-3.jpg" },
-  { id: 10, alt: "DJ booth crowd", src: "/images/marquee-bot-4.jpg", hdSrc: "/images/marquee-bot-4.jpg" },
-  { id: 11, alt: "VIP table service", src: "/images/marquee-bot-5.jpg", hdSrc: "/images/marquee-bot-5.jpg" },
-  { id: 12, alt: "Packed dance floor", src: "/images/marquee-bot-6.jpg", hdSrc: "/images/marquee-bot-6.jpg" },
+  { id: 1, alt: "Descent venue", src: "/images/descent-1.jpg", hdSrc: "/images/descent-1.jpg" },
+  { id: 2, alt: "Descent venue", src: "/images/descent-2.jpg", hdSrc: "/images/descent-2.jpg" },
+  { id: 3, alt: "Descent venue", src: "/images/descent-3.jpg", hdSrc: "/images/descent-3.jpg" },
+  { id: 4, alt: "Descent venue", src: "/images/descent-4.jpg", hdSrc: "/images/descent-4.jpg" },
+  { id: 5, alt: "Descent venue", src: "/images/descent-5.jpg", hdSrc: "/images/descent-5.jpg" },
+  { id: 6, alt: "Descent venue", src: "/images/descent-6.jpg", hdSrc: "/images/descent-6.jpg" },
+  { id: 7, alt: "Descent venue", src: "/images/descent-7.jpg", hdSrc: "/images/descent-7.jpg" },
+  { id: 8, alt: "Descent venue", src: "/images/descent-8.jpg", hdSrc: "/images/descent-8.jpg" },
+  { id: 9, alt: "Descent venue", src: "/images/descent-9.jpg", hdSrc: "/images/descent-9.jpg" },
+  { id: 10, alt: "Descent venue", src: "/images/descent-10.jpg", hdSrc: "/images/descent-10.jpg" },
+  { id: 11, alt: "Descent venue", src: "/images/descent-11.jpg", hdSrc: "/images/descent-11.jpg" },
+  { id: 12, alt: "Descent venue", src: "/images/descent-12.jpg", hdSrc: "/images/descent-12.jpg" },
 ];
 
 const features = [
@@ -187,7 +187,7 @@ export default function SpacePage() {
               backgroundClip: 'text',
             }}
           >
-            8,500 sq ft of Pure Energy
+            8,500 Square Feet of Immersive Event Space
           </h2>
           <p
             style={{
@@ -200,7 +200,21 @@ export default function SpacePage() {
             }}
             className="sm:!text-[17px] md:!text-[18px]"
           >
-            Located at <span style={{ fontWeight: 600, color: '#fff' }}>33 Dunster St, Cambridge</span> in the heart of Harvard Square, Descent is a world-class event space designed for unforgettable experiences. From corporate gatherings to private celebrations, our venue delivers premium sound, stunning visuals, and first-class hospitality.
+            Located at <span style={{ fontWeight: 600, color: '#fff' }}>33 Dunster Street</span> in the heart of Harvard Square, Descent is a premier 8,500-square-foot venue designed to host exceptional events of every kind. The space seamlessly accommodates corporate functions, private celebrations, brand activations, and live entertainment experiences.
+          </p>
+          <p
+            style={{
+              color: '#99A1AF',
+              fontFamily: 'Inter',
+              fontSize: '16px',
+              fontWeight: 400,
+              lineHeight: '28px',
+              letterSpacing: '-0.312px',
+              marginTop: '16px',
+            }}
+            className="sm:!text-[17px] md:!text-[18px]"
+          >
+            Descent combines a state-of-the-art sound system, dynamic visual production, and thoughtfully designed interiors to create an atmosphere that elevates every event. Supported by professional hospitality and flexible event capabilities, the venue provides a refined yet high-energy setting for unforgettable gatherings in Cambridge.
           </p>
           <div className="flex items-center justify-center gap-2 mt-6">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
