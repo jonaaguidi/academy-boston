@@ -5,10 +5,10 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function POST(request) {
   try {
-    const { firstName, lastName, organization, email, phone, budget, capacity, rentalTime, message } =
+    const { firstName, lastName, organization, email, phone, budget, capacity, rentalDate, rentalTime, message } =
       await request.json();
 
-    if (!firstName || !lastName || !organization || !email || !phone || !budget || !capacity || !rentalTime || !message) {
+    if (!firstName || !lastName || !organization || !email || !phone || !budget || !capacity || !rentalDate || !rentalTime || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -46,6 +46,7 @@ export async function POST(request) {
           ...properties,
           Budget: { rich_text: [{ text: { content: budget } }] },
           Capacity: { rich_text: [{ text: { content: capacity } }] },
+          "Rental Date": { date: { start: rentalDate } },
           "Rental Time": { rich_text: [{ text: { content: rentalTime } }] },
         },
       });

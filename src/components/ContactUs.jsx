@@ -11,6 +11,7 @@ const initialForm = {
   budget: "",
   capacity: "",
   rentalTime: "",
+  rentalDate: "",
   message: "",
 };
 
@@ -98,7 +99,7 @@ const ContactUs = ({ isOpen, onClose }) => {
           backgroundImage: 'radial-gradient(ellipse 800px 800px at 30% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)',
         }} />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-start gap-6 px-4 py-6 sm:gap-8 sm:px-6 sm:py-10 md:justify-between md:gap-12 md:px-12 md:py-16 min-[1120px]:flex-row min-[1120px]:items-center min-[1120px]:justify-between min-[1120px]:gap-16 min-[1120px]:px-24 overflow-y-auto max-h-[100dvh] min-[1120px]:overflow-visible min-[1120px]:max-h-none">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-start gap-6 px-4 py-6 sm:gap-8 sm:px-6 sm:py-10 md:justify-between md:gap-12 md:px-12 md:py-16 min-[1120px]:flex-row min-[1120px]:items-center min-[1120px]:justify-between min-[1120px]:gap-8 min-[1120px]:px-16 overflow-y-auto max-h-[100dvh] min-[1120px]:overflow-visible min-[1120px]:max-h-none">
           {/* Left Side */}
           <div className="mt-10 sm:mt-0 flex max-w-xl flex-col items-center text-center min-[1120px]:items-start min-[1120px]:text-left shrink-0">
             {/* Label */}
@@ -199,9 +200,9 @@ const ContactUs = ({ isOpen, onClose }) => {
 
           {/* Right Side - Form */}
           <div
-            className="w-full max-w-2xl mb-6 p-5 sm:p-5 md:p-6 min-[1120px]:p-7"
+            className="w-full max-w-[495px] mb-5 p-4 sm:p-4 md:p-5 min-[1120px]:p-6"
             style={{
-              borderRadius: '20px',
+              borderRadius: '18px',
               border: '1.5px solid rgba(255, 255, 255, 0.15)',
               background: 'rgba(0, 0, 0, 0.10)',
               boxShadow: '0 0 144px 0 rgba(255, 255, 255, 0.07)',
@@ -209,13 +210,13 @@ const ContactUs = ({ isOpen, onClose }) => {
             }}
           >
             {/* Logo */}
-            <div className="mb-4 sm:mb-5 flex justify-center">
+            <div className="mb-3 sm:mb-4 flex justify-center">
               <Image
                 src="/images/academy-logo.svg"
                 alt="Descent"
-                width={126}
-                height={25}
-                className="w-[99px] sm:w-[108px] md:w-[126px] h-auto"
+                width={113}
+                height={23}
+                className="w-[89px] sm:w-[97px] md:w-[113px] h-auto"
               />
             </div>
 
@@ -227,10 +228,10 @@ const ContactUs = ({ isOpen, onClose }) => {
                 <p className="text-xs text-white/40">We'll get back to you within 24 hours.</p>
               </div>
             ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-3xl mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5 max-w-3xl mx-auto">
               <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     First Name <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -240,11 +241,11 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="Your Name"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Last Name <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -254,14 +255,14 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="Your Last Name"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-3 md:gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Organization <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -271,11 +272,11 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="Your Organization"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Email <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -285,11 +286,11 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="Your Email"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Phone <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -299,14 +300,14 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="Your Phone"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Budget <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -316,11 +317,11 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="$10,000"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
                     Capacity <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -330,11 +331,24 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="200 guests"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-semibold text-white">
+                  <label className="text-[10px] font-semibold text-white">
+                    Rental Date <span className="text-[#F02D2D]">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    name="rentalDate"
+                    value={form.rentalDate}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors [color-scheme:dark]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-semibold text-white">
                     Rental Time <span className="text-[#F02D2D]">*</span>
                   </label>
                   <input
@@ -344,13 +358,13 @@ const ContactUs = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     placeholder="6 hours"
-                    className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                    className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-white">
+                <label className="text-[10px] font-semibold text-white">
                   Your Message <span className="text-[#F02D2D]">*</span>
                 </label>
                 <textarea
@@ -359,8 +373,8 @@ const ContactUs = ({ isOpen, onClose }) => {
                   onChange={handleChange}
                   required
                   placeholder="Talk me about your Event"
-                  rows={3}
-                  className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-xs text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
+                  rows={2}
+                  className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-[11px] text-white outline-none placeholder:text-white/30 focus:border-[#F02D2D]/50 transition-colors"
                 />
               </div>
 
@@ -372,7 +386,7 @@ const ContactUs = ({ isOpen, onClose }) => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="btn-shine flex items-center justify-center gap-2 sm:gap-2.5 px-6 sm:px-8 py-2 sm:py-2.5 disabled:opacity-50"
+                  className="btn-shine flex items-center justify-center gap-1.5 sm:gap-2 px-5 sm:px-7 py-1.5 sm:py-2 disabled:opacity-50"
                   style={{
                     borderRadius: '17.541px',
                     border: '0.57px solid #FFF',
@@ -380,7 +394,7 @@ const ContactUs = ({ isOpen, onClose }) => {
                     boxShadow: '0 0 12.38px 0 rgba(255, 255, 255, 0.40)',
                   }}
                 >
-                  <span style={{ color: '#FFF', fontFamily: '"Plus Jakarta Sans"', fontSize: '12px', fontWeight: 500, lineHeight: '18px' }}>
+                  <span style={{ color: '#FFF', fontFamily: '"Plus Jakarta Sans"', fontSize: '11px', fontWeight: 500, lineHeight: '16px' }}>
                     {submitting ? "Sending..." : "Contact Us"}
                   </span>
                   {!submitting && (
