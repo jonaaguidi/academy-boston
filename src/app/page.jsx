@@ -18,7 +18,7 @@ export default function Home() {
     <Preloader>
       <main className="flex w-full min-h-screen flex-col bg-black">
         <Header onOpenContact={() => setIsContactOpen(true)} />
-        <Hero />
+        <Hero onOpenContact={() => setIsContactOpen(true)} />
         <VipTables />
         <ExploreSpace onOpenContact={() => setIsContactOpen(true)} />
         <EventCarousel />
