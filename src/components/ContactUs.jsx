@@ -188,7 +188,7 @@ const ContactUs = ({ isOpen, onClose }) => {
             {/* Social Icons */}
             <div className="flex items-center">
               {/* Instagram */}
-              <a href="https://www.instagram.com/academy_bos/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
+              <a href="https://www.instagram.com/descentondunster/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" className="sm:w-[28px] sm:h-[28px] md:w-[32px] md:h-[32px]">
                   <path d="M15.6141 20.7361C16.9721 20.7361 18.2743 20.1967 19.2345 19.2364C20.1947 18.2763 20.7341 16.974 20.7341 15.6161C20.7341 14.2581 20.1947 12.9559 19.2345 11.9957C18.2743 11.0355 16.9721 10.4961 15.6141 10.4961C14.2563 10.4961 12.9539 11.0355 11.9937 11.9957C11.0336 12.9559 10.4941 14.2581 10.4941 15.6161C10.4941 16.974 11.0336 18.2763 11.9937 19.2364C12.9539 20.1967 14.2563 20.7361 15.6141 20.7361Z" stroke="#ECE8DE" strokeWidth="1.92" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M4.09375 20.7367V10.4967C4.09375 8.79928 4.76803 7.17142 5.96826 5.97119C7.1685 4.77096 8.79637 4.09668 10.4938 4.09668H20.7337C22.4311 4.09668 24.059 4.77096 25.2593 5.97119C26.4594 7.17142 27.1337 8.79928 27.1337 10.4967V20.7367C27.1337 22.4341 26.4594 24.0619 25.2593 25.2621C24.059 26.4624 22.4311 27.1367 20.7337 27.1367H10.4938C8.79637 27.1367 7.1685 26.4624 5.96826 25.2621C4.76803 24.0619 4.09375 22.4341 4.09375 20.7367Z" stroke="#ECE8DE" strokeWidth="1.92"/>
